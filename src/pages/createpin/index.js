@@ -40,7 +40,7 @@ function CreatePin(props) {
     if (props.auth.userData.pin) {
       router.push("/dashboard");
     }
-  }, []);
+  }, [props.auth.userData.pin]);
 
   return (
     <>
@@ -58,16 +58,6 @@ function CreatePin(props) {
         </p>
         <form onSubmit={submitHandler} className={styles["form"]}>
           <ReactCodeInput type="password" fields={6} onChange={formChange} />
-          {/* <div className={styles["pin"]}>
-            <input
-              type="password"
-              name="pin"
-              placeholder="6 digits pin"
-              minLength="6"
-              maxLength="6"
-              required
-            ></input>
-          </div> */}
           <button type="submit" className="btn btn-primary">
             Confirm
           </button>
