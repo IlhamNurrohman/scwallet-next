@@ -15,7 +15,7 @@ import PageTitle from '../../components/PageTitle';
 
 import currencyPeriod from '../../modules/helpers/currencyPeriod';
 import {getHistory} from '../../modules/api/history';
-import {getStats} from '../../modules/api/statistic';
+import {getStats} from '../../modules/api/dashboard';
 import {topUp} from '../../modules/api/topUp';
 import {getDetailUser} from '../../modules/api/user';
 import {resetTransferAction} from '../../redux/actions/transfer';
@@ -31,7 +31,7 @@ function Card({data}) {
               alt="profile"
               src={
                 data.image
-                  ? `https://fazzpay.herokuapp.com/uploads/${data.image}`
+                  ? `${data.image}`
                   : '/images/default.jpg'
               }
               placeholder="blur"
@@ -47,11 +47,13 @@ function Card({data}) {
           </div>
         </div>
         <div
-          className={`${styles['transaction-amount']} ${
-            data.type === 'topup' ? styles['green'] : styles['red']
-          }`}
-        >
-          {data.type === 'topup' ? '+' : '-'}Rp. {currencyPeriod(data.amount)}
+          className={`${styles["transaction-amount"]} ${
+            data.type === "topup" || data.type === "accept"
+              ? styles["green"]
+              : styles["red"]
+          }`} >
+          {data.type === "topup" || data.type === "accept" ? "+" : "-"}Rp.{" "}
+          {currencyPeriod(data.amount)}
         </div>
       </div>
     </Link>
@@ -60,6 +62,45 @@ function Card({data}) {
 
 function Dashboard(props) {
   const dispatch = useDispatch();
+  const [historyData, setHistoryData] = useState([]);
+  const [userData, setUserData] = useState({});
+  const [chartData, setChartData] = useState({});
+  const router = useRouter();
+  let page, filter;
+  page = router.query.page || 1;
+  filter = router.query.filter || 'WEEK';
+
+  useEffect(() => {
+    getDetailUser(props.token, props.id)
+      .then((res) => {
+        setUserData(res.data.data);
+        if (userData.balance != props.userData.balance) {
+          dispatch(updateUserData(res.data.data));
+        }
+      })
+      .catch((err) => console.log(err));
+  }, [userData.balance]);
+
+  useEffect(() => {
+    if (historyData.length === 0) {
+      getHistory(props.token, 4, filter, page)
+        .then((res) => {
+          console.log(res.data.data);
+          setHistoryData(res.data.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+
+    getStats(props.token, props.id)
+      .then((res) => {
+        setChartData(res.data.data);
+      })
+      .catch();
+
+    dispatch(resetTransferAction());
+  }, []);
 
   const [shownTopUpModal, setShownTopUpModal] = useState(false);
 
@@ -97,6 +138,68 @@ function Dashboard(props) {
       });
   };
 
+  // console.log(chartData.listIncome[5].total)
+
+  const incomeData = {
+    label: 'Income',
+    data: chartData.listIncome
+      ? [
+          chartData.listIncome[5].total,
+          chartData.listIncome[6].total,
+          chartData.listIncome[0].total,
+          chartData.listIncome[1].total,
+          chartData.listIncome[2].total,
+          chartData.listIncome[3].total,
+          chartData.listIncome[4].total,
+        ]
+      : [],
+    backgroundColor: '#6379F4',
+  };
+
+  const expenseData = {
+    label: 'Expense',
+    data: chartData.listIncome
+      ? [
+          chartData.listExpense[5].total,
+          chartData.listExpense[6].total,
+          chartData.listExpense[0].total,
+          chartData.listExpense[1].total,
+          chartData.listExpense[2].total,
+          chartData.listExpense[3].total,
+          chartData.listExpense[4].total,
+        ]
+      : [],
+    backgroundColor: '#9DA6B5',
+  };
+
+  const data = {
+    labels: ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+    datasets: [incomeData, expenseData],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: {
+          display: false,
+        },
+      },
+      x: {
+        grid: {
+          display: false,
+        },
+      },
+    },
+    legend: {
+      label: {
+        fontSize: 14,
+        fontFamily: 'Nunito Sans',
+      },
+    },
+  };
+
   return (
     <>
       <PageTitle title="Dashboard" />
@@ -107,12 +210,12 @@ function Dashboard(props) {
             <div className={styles['left']}>
               <p>Balance</p>
               <h1 className={styles['balance']}>
-                Rp.4.000.000.000{' '}
-                {/* {userData.balance
+                Rp.{' '}
+                {userData.balance
                   ? currencyPeriod(userData.balance)
-                  : currencyPeriod(props.userData.balance)} */}
+                  : currencyPeriod(props.userData.balance)}
               </h1>
-              {/* <p>{userData.noTelp || props.userData.noTelp || '-'}</p> */}
+              <p>{userData.noTelp || props.userData.noTelp || '-'}</p>
             </div>
             <div className={styles['right']}>
               <button onClick={() => router.push('/transfer')}>
@@ -130,27 +233,27 @@ function Dashboard(props) {
                   <i className="bi bi-arrow-down-short"></i>
                   <p className={styles['type']}>Income</p>
                   <p className={styles['name']}>
-                    {/* {`Rp. ${
+                    {`Rp. ${
                     chartData.totalIncome
                       ? currencyPeriod(chartData.totalIncome)
                       : '0'
-                  }`} */}
+                  }`}
                   </p>
                 </div>
                 <div className={styles['expense']}>
                   <i className="bi bi-arrow-up-short"></i>
                   <p className={styles['type']}>Expense</p>
                   <p className={styles['name']}>
-                    {/* {`Rp. ${
+                    {`Rp. ${
                     chartData.totalExpense
                       ? currencyPeriod(chartData.totalExpense)
                       : '0'
-                  }`} */}
+                  }`}
                   </p>
                 </div>
               </div>
               <div className={styles['graph']}>
-                {/* <Bar data={data} options={chartOptions} /> */}
+                <Bar data={data} options={chartOptions} />
               </div>
             </div>
             <div className={styles['history-container']}>
@@ -161,7 +264,7 @@ function Dashboard(props) {
                 </Link>
               </div>
               <div className={styles['transaction-list']}>
-                {/* {historyData.length === 0 && (
+                {historyData.length === 0 && (
                   <div>
                     No transaction made, made one by top up or transfer now!
                   </div>
@@ -169,7 +272,7 @@ function Dashboard(props) {
                 {historyData.length > 0 &&
                   historyData.map((data, idx) => (
                     <Card data={data} key={idx} />
-                  ))} */}
+                  ))}
               </div>
             </div>
           </div>

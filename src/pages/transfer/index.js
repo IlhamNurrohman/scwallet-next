@@ -21,7 +21,7 @@ function Card({ data }) {
             alt="profile"
             src={
               data.image
-                ? `https://fazzpay.herokuapp.com/${data.image}`
+                ? `${data.image}`
                 : "/images/default.jpg"
             }
             placeholder="blur"
@@ -102,7 +102,7 @@ function Transfer(props) {
                 userData.map((data, idx) => <Card data={data} key={idx} />)}
             </div>
           </div>
-          {/* <div className={styles["pagination-buttons"]}>
+          <div className={styles["pagination-buttons"]}>
             <button
               disabled={paginationData.page == 1 ? true : false}
               className={`btn btn-primary ${styles["prev"]}`}
@@ -146,7 +146,7 @@ function Transfer(props) {
             >
               <i className="bi bi-chevron-right"></i>
             </button>
-          </div> */}
+          </div>
         </div>
       </Layout>
     </>

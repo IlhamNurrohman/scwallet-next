@@ -2,11 +2,8 @@ import Link from 'next/link';
 import {useRouter} from 'next/router';
 import Image from 'next/image';
 import {connect, useSelector} from 'react-redux';
-import {useEffect, useState} from 'react';
 
 import styles from '../styles/NavBar.module.css';
-
-// import {getDetailUser} from 'src/modules/api/user';
 
 const NavBar = (props) => {
   const router = useRouter();

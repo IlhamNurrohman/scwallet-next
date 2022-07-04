@@ -176,7 +176,7 @@ function LayoutLoggedIn({ children, auth }) {
           className={`${styles["right"]} ${
             router.pathname !== "/dashboard" ? styles["not-dashboard"] : ""
           }`}
-        >
+          >
           <div className={styles["child"]}>{children}</div>
         </section>
       </section>

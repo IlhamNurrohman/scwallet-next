@@ -79,7 +79,11 @@ function TransferConfirmation(props) {
             <div className={styles["contact-item"]}>
               <div className={styles["img"]}>
                 <Image
-                  src={"/images/default.jpg"}
+                  src={
+                    props.transferData.receiverData.image
+                      ? `${props.transferData.receiverData.image}`
+                      : "/images/default.jpg"
+                  }
                   placeholder={"empty"}
                   alt="profile"
                   layout="fill"

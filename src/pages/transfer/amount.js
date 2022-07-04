@@ -56,7 +56,11 @@ function TransferAmount(props) {
             <div className={styles['contact-item']}>
               <div className={styles['img']}>
                 <Image
-                  src={'/images/default.jpg'}
+                  src={
+                    receiverData.image
+                      ? `${receiverData.image}`
+                      : "/images/default.jpg"
+                  }
                   placeholder={'empty'}
                   alt="profile"
                   layout="fill"
@@ -67,7 +71,7 @@ function TransferAmount(props) {
                 <p
                   className={styles['name']}
                 >{`${receiverData.firstName} ${receiverData.lastName}`}</p>
-                <p className={styles['phone']}>{receiverData.noTelp | '-'}</p>
+                <p className={styles['phone']}>{receiverData.noTelp}</p>
               </div>
             </div>
           </div>
