@@ -79,7 +79,7 @@ function Dashboard(props) {
         }
       })
       .catch((err) => console.log(err));
-  }, [props.token, props.id, props.userData.balance, dispatch]);
+  }, [props.token, props.id, props.userData.balance, dispatch, userData.balance]);
 
   useEffect(() => {
     if (historyData.length === 0) {
