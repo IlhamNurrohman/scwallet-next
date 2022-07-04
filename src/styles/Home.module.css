@@ -1,0 +1,311 @@
+.main {
+  position: relative;
+}
+
+.main p {
+  margin: 0;
+}
+
+.main [class*="-container"] {
+  overflow: hidden;
+  position: relative;
+}
+
+.img {
+  position: relative;
+}
+
+.navbar {
+  padding: 2vmax 10vw;
+  height: calc(4vmax + 3rem);
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.navbar a:hover {
+  opacity: 0.7;
+}
+
+.nav-right {
+  display: flex;
+  grid-gap: 1.5rem;
+}
+
+.login,
+.register {
+  height: 3rem;
+  aspect-ratio: 2/1;
+  border-radius: 0.75rem;
+  font-weight: 700;
+}
+
+.login,
+.register:hover {
+  background-color: var(--primary);
+  color: white;
+  border: 2px solid white;
+}
+
+.register,
+.login:hover {
+  background-color: white;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.banner-container {
+  height: 100vh;
+  padding: calc(4vmax + 3rem) 10vw 0;
+  background-image: url("/images/banner.jpg");
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.banner-container .img {
+  width: 100%;
+  aspect-ratio: 600/757;
+  content: url("/images/phone.png");
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-gap: 3rem;
+  width: 100%;
+  text-align: end;
+}
+
+.title {
+  font-weight: 800;
+}
+
+.button {
+  background-color: white;
+  color: var(--primary);
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  padding: 0.75rem 2rem;
+  font-weight: 700;
+  width: 10rem;
+}
+
+.about-container {
+  padding: 2vmax 10vw;
+  background-color: var(--shade);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.about-description {
+  width: 50%;
+}
+
+.about-features,
+.testimonies {
+  display: flex;
+  justify-content: center;
+  grid-gap: 1rem;
+}
+
+.about-feature,
+.testimony {
+  padding: 2rem 1.5rem;
+  background-color: white;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 1rem;
+  flex-grow: 1;
+  flex-basis: 0;
+  box-shadow: var(--shadow);
+}
+
+.background-image {
+  background-color: var(--shade);
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-feature .img {
+  height: 68%;
+  width: 68%;
+}
+
+.about-feature h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.partners-container {
+  padding: 8vw 10vw;
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  grid-gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.partners-detail {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.partners {
+  width: 100%;
+  aspect-ratio: 56/27;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.partners .img {
+  height: 100%;
+  width: 100%;
+}
+
+.features-container {
+  padding: 2vmax 10vw;
+  background-color: var(--shade);
+  display: flex;
+  flex-direction: column;
+  grid-gap: 2rem;
+  align-items: center;
+}
+
+.features-container .img {
+  width: 100%;
+  aspect-ratio: 1062/2020;
+  content: url("/images/phone1.png");
+}
+
+.features-text {
+  width: 100%;
+}
+
+.features-list {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
+.feature-wrapper {
+  background-color: white;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border-radius: 1.5rem;
+}
+
+.testimony-container {
+  padding: 2vmax 10vw;
+  background-color: var(--background);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.testimony-description {
+  width: 50%;
+}
+
+.testimony .img {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.testimony h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+@media (min-width: 576px) {
+  .about-container {
+    height: 100vh;
+  }
+
+  .testimony-container {
+    height: 100vh;
+  }
+}
+
+@media (min-width: 768px) {
+  .banner-container {
+    height: 100vh;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .banner-container .img {
+    align-self: flex-end;
+    height: 100%;
+    width: auto;
+    aspect-ratio: 600/757;
+  }
+
+  .partners-container {
+    height: 40vh;
+    flex-direction: row;
+  }
+
+  .partners-detail {
+    width: 40%;
+  }
+
+  .partners {
+    width: 40%;
+    aspect-ratio: 56/27;
+  }
+
+  .features-container {
+    height: 100vh;
+    flex-direction: row-reverse;
+  }
+
+  .features-text {
+    width: 60%;
+  }
+
+  .features-container .img {
+    width: auto;
+    max-height: 100%;
+  }
+
+  .header {
+    text-align: start;
+  }
+}
+
+@media (min-width: 992px) {
+}

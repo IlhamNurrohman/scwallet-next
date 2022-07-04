@@ -1,0 +1,248 @@
+.main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 1rem;
+}
+
+.main .img {
+  position: relative;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+.name {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.name,
+.type {
+  text-align: center;
+}
+
+.link-container {
+  width: 100%;
+  height: 3rem;
+  background-color: #e5e8ed;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* personal info */
+
+.main-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.item-container {
+  width: 100%;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  border-radius: 1rem;
+}
+
+.item-container.phone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-container.phone a {
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.info-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Change Pin */
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 1rem;
+}
+
+.pin {
+  width: 60%;
+}
+
+.phone-field input[type*="number"]::-webkit-outer-spin-button,
+.phone-field input[type*="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.phone-field input {
+  width: 430px;
+  height: 3rem;
+  border: none;
+  border-bottom: 1.5px solid rgba(99, 121, 244, 1);
+  background-color: transparent;
+  font-weight: 600;
+  text-align: center;
+}
+
+.form button {
+  width: 60%;
+  height: 3rem;
+  border-radius: 0.75rem;
+}
+
+/* change password */
+
+.form-password {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
+.form-password input {
+  width: 100%;
+  height: 2rem;
+  border: none;
+  border-bottom: 1.5px solid var(--dark03);
+  background-color: transparent;
+  font-weight: 600;
+  padding-left: 1.25rem;
+}
+
+.form-password input::placeholder {
+  color: var(--dark03);
+}
+
+.form-password input:focus {
+  outline: none;
+}
+
+.form-password input:not(:placeholder-shown) {
+  border-bottom: 2px solid var(--primary);
+}
+
+.form-password button {
+  margin-top: 1rem;
+  width: 100%;
+  height: 3rem;
+  border: none;
+  color: white;
+  background-color: var(--primary);
+  font-weight: 700;
+  border-radius: 0.75rem;
+}
+
+.form-password button:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  opacity: 0.9;
+}
+
+.form-password button:disabled {
+  color: var(--dark);
+  background-color: var(--dark03);
+}
+
+.form-password div {
+  position: relative;
+}
+
+.form-password i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--dark03);
+}
+
+.form-password i.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.form-password i.toggle-password:hover {
+  color: var(--primary);
+}
+
+.password-notif {
+  color: var(--red);
+}
+
+.password-notif.hide {
+  display: initial;
+}
+
+.password-notif.show {
+  display: none;
+}
+
+/* manage phone */
+.phone-container {
+  width: 100%;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.phone-container i {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.phone-container i:hover {
+  opacity: 0.7;
+}
+
+.img-center {
+  display: flex;
+  justify-content: center;
+}
+
+.img-modal {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 2rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+  .link-container {
+    width: 50%;
+  }
+}
