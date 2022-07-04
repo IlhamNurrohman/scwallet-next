@@ -54,7 +54,7 @@ export default function Login(props) {
     if (auth.isRejected) {
       toast.error('Login error', { autoClose: false });
     }
-  }, [auth]);
+  }, [auth, dispatch, router]);
 
   return (
     <>

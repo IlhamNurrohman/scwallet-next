@@ -46,7 +46,7 @@ export default function Register(props) {
     if (auth.isFulfilled) {
       router.push('/dashboard');
     }
-  }, [auth]);
+  }, [auth, router]);
 
   return (
     <>

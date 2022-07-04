@@ -18,7 +18,7 @@ function Forgot(props) {
     if (props.auth.isFulfilled) {
       router.push("/dashboard");
     }
-  }, [props.auth.isFulfilled]);
+  }, [props.auth.isFulfilled, router]);
 
   const submitHandler = (e) => {
     e.preventDefault();

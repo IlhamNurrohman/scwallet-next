@@ -79,7 +79,7 @@ function Dashboard(props) {
         }
       })
       .catch((err) => console.log(err));
-  }, [props.token, props.id, userData.balance]);
+  }, [props.token, props.id, props.userData.balance, dispatch]);
 
   useEffect(() => {
     if (historyData.length === 0) {
@@ -100,7 +100,7 @@ function Dashboard(props) {
       .catch();
 
     dispatch(resetTransferAction());
-  }, [props.token, props.id, filter, page]);
+  }, [props.token, props.id, filter, page, historyData.length, dispatch]);
 
   const [shownTopUpModal, setShownTopUpModal] = useState(false);
 

@@ -42,7 +42,7 @@ function AddPhone(props) {
     if (props.userData.noTelp) {
       router.push("/profile/edit-phone");
     }
-  }, []);
+  }, [props.userData.noTelp, router]);
 
   return (
     <>

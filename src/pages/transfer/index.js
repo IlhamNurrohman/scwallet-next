@@ -73,7 +73,7 @@ function Transfer(props) {
           .catch((err) => console.log(err));
 
     dispatch(resetTransferAction());
-  }, [router.query]);
+  }, [router.query, dispatch, page, paginationData, props.token]);
 
   return (
     <>

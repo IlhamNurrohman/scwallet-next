@@ -79,7 +79,7 @@ function History(props) {
       .catch((err) => {
         console.log(err);
       });
-  }, [props.token, filter, page]);
+  }, [props.token, filter, page, paginationData]);
 
   useEffect(() => {
     dispatch(resetTransferAction());
