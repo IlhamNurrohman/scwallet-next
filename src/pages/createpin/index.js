@@ -40,7 +40,7 @@ function CreatePin(props) {
     if (props.auth.userData.pin) {
       router.push("/dashboard");
     }
-  }, [props.auth.userData.pin]);
+  }, [props.auth.userData.pin, router]);
 
   return (
     <>
