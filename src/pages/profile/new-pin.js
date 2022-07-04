@@ -6,11 +6,11 @@ import dynamic from "next/dynamic";
 
 const ReactCodeInput = dynamic(import("react-code-input"));
 
-import styles from "src/common/styles/Profile.module.css";
+import styles from "../../styles/Profile.module.css";
 
-import Layout from "src/common/components/LayoutLoggedIn";
-import PageTitle from "src/common/components/PageTitle";
-import { editPin } from "src/modules/api/user";
+import Layout from "../../components/LayoutLoggedIn";
+import PageTitle from "../../components/PageTitle";
+import { editPin } from "../../modules/api/user";
 
 function NewPin(props) {
   const router = useRouter();
