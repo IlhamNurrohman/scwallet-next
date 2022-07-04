@@ -32,3 +32,8 @@ export const editImage = (token, id, body) => {
   const URL = `${process.env.NEXT_PUBLIC_BACKEND_URL}/user/image/${id}`;
   return axios.patch(URL, body, config(token));
 };
+
+export const editPin = (token, id, body) => {
+  const URL = `${process.env.NEXT_PUBLIC_BACKEND_URL}/user/pin/${id}`;
+  return axios.patch(URL, body, config(token));
+};

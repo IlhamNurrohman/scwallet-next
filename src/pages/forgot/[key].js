@@ -9,7 +9,7 @@ import styles from "../../styles/Auth.module.css";
 import Layout from "../../components/LayoutAuth";
 import PageTitle from "../../components/PageTitle";
 
-import { resetPassword } from "../../modules/api/auth";
+// import { resetPassword } from "../../modules/api/auth";
 
 export default function ResetPassword() {
   const router = useRouter();
@@ -43,14 +43,14 @@ export default function ResetPassword() {
 
     console.log(body)
 
-    resetPassword(body)
-      .then((res) => {
-        if (res.data.status == 200) {
-          toast.success("Success, redirecting to login");
-          router.push("/login");
-        }
-      })
-      .catch((err) => console.log(err));
+    // resetPassword(body)
+    //   .then((res) => {
+    //     if (res.data.status == 200) {
+    //       toast.success("Success, redirecting to login");
+    //       router.push("/login");
+    //     }
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   return (
