@@ -37,7 +37,7 @@ function HistoryId(props) {
       .catch((err) => {
         console.log(err);
       });
-  }, [router.query.id]);
+  }, [props.token, router.query.id]);
 
   return (
     <>

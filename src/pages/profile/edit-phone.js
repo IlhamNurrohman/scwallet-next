@@ -42,7 +42,7 @@ function ManagePhone(props) {
     if (!props.userData.noTelp) {
       router.push("/profile/add-phone");
     }
-  }, []);
+  }, [props.userData.noTelp]);
 
   return (
     <>

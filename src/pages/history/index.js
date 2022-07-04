@@ -79,11 +79,11 @@ function History(props) {
       .catch((err) => {
         console.log(err);
       });
-  }, [filter, page]);
+  }, [props.token, filter, page]);
 
   useEffect(() => {
     dispatch(resetTransferAction());
-  }, []);
+  });
 
   return (
     <>

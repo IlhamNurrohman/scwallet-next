@@ -65,7 +65,7 @@ function Profile(props) {
 
   useEffect(() => {
     dispatch(resetTransferAction());
-  }, []);
+  });
 
   return (
     <>

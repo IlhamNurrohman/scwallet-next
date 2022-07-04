@@ -6,7 +6,7 @@ import Image from 'next/image';
 import {Button, Modal} from 'react-bootstrap';
 import {toast} from 'react-toastify';
 import {Chart as ChartJS} from 'chart.js/auto';
-import {Chart, Bar} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 
 import styles from '../../styles/Dashboard.module.css';
 
@@ -100,7 +100,7 @@ function Dashboard(props) {
       .catch();
 
     dispatch(resetTransferAction());
-  }, []);
+  }, [props.token, props.id]);
 
   const [shownTopUpModal, setShownTopUpModal] = useState(false);
 
