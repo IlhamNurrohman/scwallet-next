@@ -53,7 +53,10 @@ function TransferConfirmation(props) {
           dispatch(transferAction(props.token, body));
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        toast.error("Wrong pin !")
+        console.log(err)
+      });
   };
 
   useEffect(() => {
@@ -66,7 +69,7 @@ function TransferConfirmation(props) {
         .catch((err) => console.log(err));
       router.push("/transfer/status");
     }
-  });
+  },[props.transferResult.isFulfilled, dispatch, props.token, props.id]);
 
   return (
     <>

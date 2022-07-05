@@ -33,7 +33,7 @@ export default function Register(props) {
     register(body)
       .then((response) => {
         // console.log(response);
-        toast.success('Register success, redirecting to login page.');
+        toast.success('Register success, redirecting to login page');
         router.push('/login');
       })
       .catch((err) => {

@@ -41,7 +41,7 @@ export default function Login(props) {
 
   useEffect(() => {
     if (auth.isFulfilled) {
-      toast.success('Login success, redirecting to dashboard.');
+      toast.success('Login success');
       getDetailUser(auth.userData.token, auth.userData.id)
         .then((res) => {
           dispatch(updateUserData(res.data.data));

@@ -10,9 +10,9 @@ import styles from "../../styles/Profile.module.css";
 
 import Layout from "../../components/LayoutLoggedIn";
 import PageTitle from "../../components/PageTitle";
-import { editPin } from "../../modules/api/user";
+import { checkPin } from "../../modules/api/user";
 
-function NewPin(props) {
+function ChangePin(props) {
   const router = useRouter();
   const [pin, setPin] = useState(null);
 
@@ -22,33 +22,35 @@ function NewPin(props) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    const body = {
-      pin: pin,
-    };
-
-    editPin(props.token, props.id, body)
+    // const body = {
+    //   pin: pin,
+    // };
+    checkPin(props.token, pin)
       .then((res) => {
         if (res.data.status == 200) {
-          toast.success("Success");
-          router.push("/profile");
+          toast.success("Correct pin");
+          router.push("/profile/new-pin");
         }
       })
       .catch((err) => {
-        toast.error("Length pin 6 number")
+        toast.error("Wrong pin !")  
         console.log(err)
       });
   };
 
   return (
     <>
-      <PageTitle title="New Pin" />
+      <PageTitle title="Change Pin" />
 
       <Layout>
         <div className={styles["main-container"]}>
           <div className={styles["header"]}>
             <p className={styles["title"]}>Change Pin</p>
           </div>
-          <p>Type your new 6 digits security PIN to use in SCWallet.</p>
+          <p>
+            Enter your current 6 digits SCWallet PIN below to continue to the
+            next steps.
+          </p>
           <form onSubmit={submitHandler} className={styles["form"]}>
             <ReactCodeInput
               type="password"
@@ -56,6 +58,16 @@ function NewPin(props) {
               name="pin"
               onChange={formChange}
             />
+            {/* <div className={styles["pin"]}>
+              <input
+                type="password"
+                name="pin"
+                placeholder="6 digits pin"
+                minLength="6"
+                maxLength="6"
+                required
+              ></input>
+            </div> */}
             <button type="submit" className="btn btn-primary">
               Confirm
             </button>
@@ -74,4 +86,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(NewPin);
+export default connect(mapStateToProps)(ChangePin);

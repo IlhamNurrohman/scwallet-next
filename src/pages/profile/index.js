@@ -60,7 +60,10 @@ function Profile(props) {
           router.push("/profile");
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        toast.error("File too large !")
+        console.log(err)
+      });
   };
 
   useEffect(() => {

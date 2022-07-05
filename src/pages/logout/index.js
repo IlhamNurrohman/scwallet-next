@@ -17,7 +17,7 @@ function Logout(props) {
       toast.success("Logout success, redirecting to login page.");
       router.push("/login");
     }
-  });
+  }, [props.auth.userData.token]);
 
   return <></>;
 }

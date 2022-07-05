@@ -37,3 +37,7 @@ export const editPin = (token, id, body) => {
   const URL = `${process.env.NEXT_PUBLIC_BACKEND_URL}/user/pin/${id}`;
   return axios.patch(URL, body, config(token));
 };
+export const editPassword = (token, id, body) => {
+  const URL = `${process.env.NEXT_PUBLIC_BACKEND_URL}/user/password/${id}`;
+  return axios.patch(URL, body, config(token));
+};
