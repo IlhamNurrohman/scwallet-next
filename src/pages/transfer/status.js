@@ -27,7 +27,7 @@ function TransferStatus(props) {
         setExportData(res.data.data.url);
       })
       .catch((err) => console.log(err));
-  }, [props.token, props.transferResult.data.id]);
+  }, [props.token, props.transferResult.data]);
 
   return (
     <>
