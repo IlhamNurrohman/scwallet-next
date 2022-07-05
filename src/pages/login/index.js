@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,7 +10,7 @@ import Layout from '../../components/LayoutAuth';
 import PageTitle from '../../components/PageTitle';
 
 import { loginAction } from '../../redux/actions/auth';
-import { updateUserData, userDataAction } from '../../redux/actions/user';
+import { updateUserData } from '../../redux/actions/user';
 import { getDetailUser } from '../../modules/api/user';
 
 export default function Login(props) {

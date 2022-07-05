@@ -37,7 +37,7 @@ export default function Register(props) {
         router.push('/login');
       })
       .catch((err) => {
-        toast.success('Register error', {autoClose: false});
+        toast.error('Register error', {autoClose: false});
         console.error(err);
       });
   };
