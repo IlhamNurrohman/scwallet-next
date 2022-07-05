@@ -69,7 +69,7 @@ function TransferConfirmation(props) {
         .catch((err) => console.log(err));
       router.push("/transfer/status");
     }
-  },[props.transferResult.isFulfilled, dispatch, props.token, props.id]);
+  },[props.transferResult.isFulfilled, dispatch, props.token, props.id, router]);
 
   return (
     <>
