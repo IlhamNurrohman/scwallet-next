@@ -9,7 +9,7 @@ import styles from "../../styles/Auth.module.css";
 import Layout from "../../components/LayoutAuth";
 import PageTitle from "../../components/PageTitle";
 
-// import { forgotPassword } from "../../modules/api/auth";
+import { forgotPassword } from "../../modules/api/auth";
 
 function Forgot(props) {
   const router = useRouter();
@@ -26,13 +26,13 @@ function Forgot(props) {
       email: e.target.email.value
     };
 
-    // forgotPassword(body)
-    //   .then((res) => {
-    //     if (res.data.status == 200) {
-    //       toast.success("Success, check your email.");
-    //     }
-    //   })
-    //   .catch((err) => console.log(err));
+    forgotPassword(body)
+      .then((res) => {
+        if (res.data.status == 200) {
+          toast.success("Success, check your email.");
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
