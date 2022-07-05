@@ -120,11 +120,11 @@ function HistoryId(props) {
           </div>
 
           <section className={styles["buttons"]}>
-            <a href={exportData} target="_blank" rel="noreferrer">
+            {/* <a href={exportData} target="_blank" rel="noreferrer">
               <button className={`btn ${styles["download"]}`}>
                 Download PDF
               </button>
-            </a>
+            </a> */}
             <button
               className={`btn btn-primary ${styles["home"]}`}
               onClick={backHomeHandler}
