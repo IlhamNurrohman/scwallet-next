@@ -23,7 +23,6 @@ SCWallet is an online payment application or Web Based e-wallet. This applicatio
 - [Deployment](#deployment)
 - [Screenshots](#screenshots)
 - [Related Projects](#related-projects)
-- [Contributors](#contributors)
 
 ## Features
 
