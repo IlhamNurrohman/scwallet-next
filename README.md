@@ -1,34 +1,94 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SCwallet: Money Transfer App With NextJS
 
-## Getting Started
+<div align="center">
 
-First, run the development server:
+[![react-router-dom](https://img.shields.io/npm/v/react-router-dom?label=react-router-dom)](https://www.npmjs.com/package/react-router-dom)
+[![axios](https://img.shields.io/npm/v/axios?label=axios)](https://www.npmjs.com/package/axios)
+[![chart.js](https://img.shields.io/npm/v/chart.js?label=chart.js)](https://www.npmjs.com/package/chart.js)
+[![craco](https://img.shields.io/npm/v/craco?label=craco)](https://www.npmjs.com/package/craco)
+[![lottie-react](https://img.shields.io/npm/v/lottie-react?label=lottie-react)](https://www.npmjs.com/package/lottie-react)
+[![moment](https://img.shields.io/npm/v/moment?label=moment)](https://www.npmjs.com/package/moment)
+[![redux](https://img.shields.io/npm/v/redux?label=redux)](https://www.npmjs.com/package/redux)
 
-```bash
-npm run dev
-# or
-yarn dev
+<br/>
+
+</div>
+
+SCWallet is an online payment application or Web Based e-wallet. This application is built using the NextJs framework technology from ReactJs.
+
+## Contents
+
+- [Features](#features)
+- [Run Application](#how-to-run-the-application)
+- [Deployment](#deployment)
+- [Screenshots](#screenshots)
+- [Related Projects](#related-projects)
+- [Contributors](#contributors)
+
+## Features
+
+### Public
+
+- Login
+- Register
+- Forgot Password
+- Transfer
+- Transfer History
+- Edit profile
+- Dashboard
+
+## How to Run the Application
+
+### 1. Clone this repository
+
+Clone this repository by run the following code:
+
+```
+$ git clone https://github.com/IlhamNurrohman/scwallet-next.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install dependency packages
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Install dependency packages by run the following code inside project folder:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```
+$ npm i
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### 3. Configure .env file
 
-## Learn More
+Configure .env file by create file named .env inside project folder and add this line to the file:
 
-To learn more about Next.js, take a look at the following resources:
+```
+NEXT_PUBLIC_BACKEND_URL = YOUR_ENV
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. Run projects
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Run this projects by run the following code:
 
-## Deploy on Vercel
+```
+$ npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+It runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+## Deployment
+
+[Vercel deploy link](https://scwallet-six.vercel.app)
+
+## Screenshots
+
+<div align="center">
+<img width="500" src="./public/images/Screen Shot 2022-07-28 at 09.53.18.png" alt="Landing page">
+
+<img width="500" src="./public/images/Screen Shot 2022-07-28 at 09.53.33.png" alt="Login page">
+
+<img width="500" src="./public/images/Screen Shot 2022-07-28 at 09.54.21.png" alt="Dashboard">
+
+<img width="500" src="./public/images/Screen Shot 2022-07-28 at 09.54.37.png" alt="Top Up">
+</div>
